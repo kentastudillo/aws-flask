@@ -1,9 +1,9 @@
 version: 0.0
 os: linux
 files:
-  - source: /magic8ball
-    destination: /var/www/magic8ball
-  - source: /magic8ball.conf
+  - source: /register
+    destination: /var/www/register
+  - source: /register.conf
     destination: /etc/apache2/sites-available
 hooks:
    BeforeInstall:
