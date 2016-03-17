@@ -1,10 +1,16 @@
 version: 0.0
 os: linux
 files:
-  - source: /register
-    destination: /var/www/register
-  - source: /register.conf
-    destination: /etc/apache2/sites-available
+   - source: /
+     destination: /var/www/register
+permissions:
+   - object: /var/www/register
+     pattern: "**"
+     owner: apache
+     group: apache
+     mode: 755
+     type:
+       - file
 hooks:
    BeforeInstall:
     - location: scripts/installapache.sh
