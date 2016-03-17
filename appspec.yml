@@ -1,23 +1,22 @@
 version: 0.0
 os: linux
 files:
-  - source: /register
-    destination: /var/www/register
-  - source: /register.conf
-    destination: /etc/apache2/sites-available
+   - source: /
+     destination: /var/www/html
+permissions:
+   - object: /var/www/html
+     pattern: "**"
+     owner: apache
+     group: apache
+     mode: 755
+     type:
+       - file
 hooks:
-  ApplicationStop:
-    - location: scripts/deregister_from_elb.sh
-    - location: scripts/stop_server
-      timeout: 300
-
-  BeforeInstall:
-    - location: scripts/install_dependencies
-
-  AfterInstall:
-    - location: scripts/setup_virtualenv
-    - location: scripts/start_server
-      timeout: 300
-
-  ApplicationStart:
-    - location: scripts/register_with_elb.sh
+   BeforeInstall:
+    - location: scripts/installapache.sh
+      runas: root
+    - location: scripts/startapache.sh
+      runas: root
+   AfterInstall:
+    - location: scripts/restartapache.sh
+      runas: root

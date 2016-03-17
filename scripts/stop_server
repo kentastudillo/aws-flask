@@ -1,4 +1,0 @@
-#!/bin/bash
-
-#kill off any older instances of magic8ball...
-pkill -f register || true
