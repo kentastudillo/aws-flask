@@ -1,16 +1,10 @@
 version: 0.0
 os: linux
 files:
-   - source: /
-     destination: /var/www/html
-permissions:
-   - object: /var/www/html
-     pattern: "**"
-     owner: apache
-     group: apache
-     mode: 755
-     type:
-       - file
+  - source: /magic8ball
+    destination: /var/www/magic8ball
+  - source: /magic8ball.conf
+    destination: /etc/apache2/sites-available
 hooks:
    BeforeInstall:
     - location: scripts/installapache.sh
