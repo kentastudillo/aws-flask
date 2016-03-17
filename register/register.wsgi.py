@@ -2,6 +2,6 @@
 import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0,"/var/www/magic8ball/")
+sys.path.insert(0,"/var/www/register/")
 
-from magic8ball import app as application
+from register import app as application
