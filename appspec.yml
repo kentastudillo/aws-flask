@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /app.wsgi
+  - source: /application.wsgi
     destination: /var/www/sample-app
   - source: /
     destination: /home/ec2-user/sample-app
